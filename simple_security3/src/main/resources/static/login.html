@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+</head>
+<body>
+	<h1>Login</h1>
+    <form name="login">
+        <div>
+            <input name="username" type="text" placeholder="UserID"/>
+        </div>
+        <div>
+            <input name="password" type="password" placeholder="Password"/>
+        </div>
+        <div>
+            <input type="button" value="로그인" onclick="onLogin()"/>
+        </div>
+    </form>
+    <script>
+	    function onLogin(e) {
+	       /*
+	        * login시 FormData로 POST 호출함
+	        * FormData에는 username과 password가 입력
+	        * 응답은 성공시 body없이 200반환, 실패시 401 상태과 body 에러 반환 
+	        */
+    	   var formData = new FormData(document.forms.login);
+    	   fetch('/login', {
+    		  method: 'POST',
+    		  body: formData
+    	   }).then(function (res) {
+    		   if(res.ok) {
+    			   return Promise.resolve();
+    		   } else {
+    			   return Promise.reject(res);
+    		   }
+    	   }).then(function (json) {
+    		   window.location.replace('/main.html');
+    	   }).catch(function (err) {
+    		   console.log('ERROR', err.status);
+    		   err.json().then(function(json) {
+    			   alert('Error: ' + json.error+'(' + json.message + ')');   
+    		   });
+    	   });
+	    }
+    </script>
+</body>
+</html>

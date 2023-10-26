@@ -1,0 +1,28 @@
+// gradle1-app
+plugins {
+    id 'java'
+    id 'application'
+}
+
+version '1.0'
+sourceCompatibility = 1.8
+mainClassName = 'application.App'
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes  'Version': version, 'Main-Class': mainClassName
+    }
+    dependsOn configurations.runtime
+    from {
+        configurations.compile.collect {it.isDirectory()? it: zipTree(it)}
+    }
+}
+
+dependencies {
+    compile project(':gradle1-lib')
+    testImplementation 'junit:junit:4.12'
+}

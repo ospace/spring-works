@@ -1,0 +1,72 @@
+// gradle2-multi
+
+/*
+ * Spring Boot 버전, Maven 저장소, Dependency 모듈 지정하여 스프링 부트 플러그인 사용할 수 있는 기본 정보 정의
+ * 하위 프로젝트에 공통적으로 관련된 plugin을 등록하면 된다.
+ */
+ 
+def applicationVersion = '1.2.0-SNAPSHOT'
+def libraryVersion = '1.1.0-SNAPSHOT'
+
+buildscript {
+    ext {
+        springBootVersion = '2.1.8.RELEASE'
+    }
+    
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+/*
+ * ROOT 포함한 모든 프로젝트에 공통으로 적용할 내용
+ */
+allprojects {
+    apply plugin: 'eclipse'
+}
+
+subprojects {
+    // apply는 플러그인 적용
+    apply plugin: 'java'    
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    
+    group 'gradle2'
+    
+    sourceCompatibility = 1.8
+    
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        testImplementation 'junit:junit:4.12'
+    }
+}
+
+project(':gradle2-app') {
+    version = applicationVersion
+    
+    apply plugin: 'application'
+    
+    dependencies {
+        compile project(':gradle2-lib')
+    }
+    application {
+        // Define the main class for the application.
+       mainClassName = 'application.App'
+    }
+}
+
+project(':gradle2-lib') {
+    version = libraryVersion
+
+    //https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html/#packaging-executable-and-normal
+    // bootJar task에 대해 jar 활성화
+    jar.enabled = true
+    // bootJar에 의해 패키징 피함
+    bootJar.enabled = false
+}
