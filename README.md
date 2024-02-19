@@ -1,29 +1,17 @@
 # spring-works
 스프링 작업물들
 
-## demo3_security
+## 스프링 시큐리티 예제
+* spring-security-01
+  자세한 설명: https://ospace.tistory.com/951
+  
+* spring-security-02
+  자세한 설명: https://ospace.tistory.com/952
 
-스프링 시큐리티
-
-## demo4_security
-
-스프링 시큐리티
-
-## gradle1-multi
-
-그래들 기반 멀티 프로젝트
-
-## gradle2-multi
-
-그래들 기반 멀티 프로젝트
-
-## simple_security1
-
-스프링 시큐리티
-
-## simple_security1
-
-스프링 시큐리티
+## 그래들 프로젝트 예제
+멀티 프로젝트 예제
+* gradle1-multi
+* gradle2-multi
 
 ## simple_security3
 Form 기반을 json 데이터로 API 인증 제공
