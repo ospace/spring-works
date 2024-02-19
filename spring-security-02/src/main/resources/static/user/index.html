@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+    <h1>Hello User</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/logout">Logout</a>
+        <a href="/dropout">Drop out</a>
+    </nav>
+    <script>
+        function onUserId() {
+            fetch(`/api/user/${userId.value}`)
+            .then(res=>res.text())
+            .then(text=>result.innerText = text);
+        }
+    </script>
+</body>
+</html>
