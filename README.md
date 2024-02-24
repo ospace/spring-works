@@ -3,16 +3,20 @@
 
 ## 스프링 시큐리티 예제
 * spring-security-01
+  * 간단한 폼인증
   * 프로젝트 경로: https://github.com/ospace/spring-works/tree/main/spring-security-01
-  * 자세한 설명: https://ospace.tistory.com/951
   
 * spring-security-02
+  * 사용자 접근제어
   * 프로젝트 경로: https://github.com/ospace/spring-works/tree/main/spring-security-02
-  * 자세한 설명: https://ospace.tistory.com/952
  
 * spring-security-03
+  * LDAP 인증
   * 프로젝트 경로: https://github.com/ospace/spring-works/tree/main/spring-security-03
-  * 자세한 설명: https://ospace.tistory.com/953
+
+* spring-security-04
+  * OAuth2 인증
+  * 프로젝트 경로: https://github.com/ospace/spring-works/tree/main/spring-security-04
 
 ## 그래들 프로젝트 예제
 멀티 프로젝트 예제
