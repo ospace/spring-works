@@ -9,6 +9,10 @@
 * spring-security-02
   * 프로젝트 경로: https://github.com/ospace/spring-works/tree/main/spring-security-02
   * 자세한 설명: https://ospace.tistory.com/952
+ 
+* spring-security-03
+  * 프로젝트 경로: https://github.com/ospace/spring-works/tree/main/spring-security-03
+  * 자세한 설명: https://ospace.tistory.com/953
 
 ## 그래들 프로젝트 예제
 멀티 프로젝트 예제
